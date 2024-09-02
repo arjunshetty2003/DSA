@@ -21,3 +21,23 @@ public:
         return arr;
     }
 };
+//Optimal solution
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> arr;
+        unordered_map<int,int> mpp;
+        int n = nums.size();
+        for (int i=0; i<n; i++) {
+            if (mpp.find(target-nums[i]) != mpp.end()) {
+                arr.emplace_back(i);
+                arr.emplace_back(mpp[target-nums[i]]);
+                return arr;
+            }
+            else {
+                mpp[nums[i]] = i;
+            }
+        }
+        return arr;
+    }
+};
