@@ -44,7 +44,10 @@ public:
 };
 
 // Optimal approach
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 class Solution {
 public:
     vector<int> findPeakGrid(vector<vector<int>>& matrix) {
