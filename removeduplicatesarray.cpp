@@ -1,30 +1,35 @@
-//Remove duplicates in an array
-//brute force
-int removeDuplicates(vector<int>& nums) {
-        int n = nums.size();
-        set<int> st;
-        for (int i=0; i<n; i++) {
-            st.insert(nums[i]);
-        }
-        int k = 0;
-        for (auto it : st) {
-            nums[k] = it;
-            k++;
-        }
-        return k;
-    }
-
-//optimal
+// Brute Force O(n) but space O(n)
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int j=1; j<nums.size(); j++) {
-            if (nums[j] != nums[i]) {
-                nums[i+1] = nums[j];
-                i++;
-            }
+        set<int> temp;
+        vector<int> res;
+        for (int i=0; i < nums.size(); i++) {
+            temp.insert(nums[i]);
         }
-        return i+1;
+        for (auto x : temp) {
+            res.push_back(x);
+        }
+
+        nums = res;
+        return nums.size();
     }
-};
+}; 
+
+// Optimal Two-Pointer but space O(1)
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        set<int> temp;
+        vector<int> res;
+        for (int i=0; i < nums.size(); i++) {
+            temp.insert(nums[i]);
+        }
+        for (auto x : temp) {
+            res.push_back(x);
+        }
+
+        nums = res;
+        return nums.size();
+    }
+}; 
