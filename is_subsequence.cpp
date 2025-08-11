@@ -1,0 +1,14 @@
+// Time complexity O(N)
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int sp = 0, tp = 0;
+        while (tp < t.length()) {
+            if (s[sp] == t[tp])
+               sp++;
+            tp++;
+        }
+
+        return sp == s.length();
+    }
+};
